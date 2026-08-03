@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Impact Section</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#fffdf8;color:#222}
+.impact{max-width:1100px;margin:auto;padding:70px 20px;position:relative}
+.impact:after{content:"";position:absolute;left:0;right:0;top:180px;bottom:0;background-image:linear-gradient(#efe7dc 1px,transparent 1px),linear-gradient(90deg,#efe7dc 1px,transparent 1px);background-size:36px 36px;opacity:.45;z-index:-1}
+h1{text-align:center;font-size:54px;margin:0}.sub{text-align:center;color:#555;max-width:620px;margin:18px auto 50px;line-height:1.6}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:25px}
+.card{background:#fff;border:1px solid #eee3d7;border-radius:28px;padding:35px;text-align:center;box-shadow:0 10px 24px rgba(0,0,0,.05);transition:.3s;animation:float 4s ease-in-out infinite}
+.card:nth-child(2){animation-delay:.5s}.card:nth-child(3){animation-delay:1s}
+.card:hover{transform:translateY(-8px)}
+.icon{font-size:44px}.num{font-size:70px;font-weight:800}.line{width:80px;height:5px;border-radius:10px;margin:14px auto}.pink{background:#f7a3b8}.blue{background:#9fd2dc}.yellow{background:#f7d24e}
+.label{color:#555;font-size:20px;line-height:1.5}.footer{text-align:center;margin-top:35px;color:#666}
+.d{position:absolute;font-size:32px;animation:float 5s ease-in-out infinite}.a{left:20px;top:30px}.b{right:30px;top:35px}.c{left:30px;bottom:10px}.e{right:35px;bottom:10px}
+@keyframes float{50%{transform:translateY(-8px)}}
+@media(max-width:760px){.stats{grid-template-columns:1fr}h1{font-size:40px}.num{font-size:58px}}
+</style></head>
+<body><section class="impact">
+<div class="d a">🌸</div><div class="d b">✨</div><div class="d c">💛</div><div class="d e">⭐</div>
+<h1>Our Impact</h1>
+<p class="sub">Our first community fundraiser brought neighbors together to support pediatric cancer research.</p>
+<div class="stats">
+<div class="card"><div class="icon">❤️</div><div class="num counter" data-target="700">0</div><div class="line pink"></div><div class="label">Raised for pediatric cancer research</div></div>
+<div class="card"><div class="icon">🕒</div><div class="num counter" data-target="6.5">0</div><div class="line blue"></div><div class="label">Hours of community outreach</div></div>
+<div class="card"><div class="icon">⭐</div><div class="num counter" data-target="1">0</div><div class="line yellow"></div><div class="label">Community fundraising campaign</div></div>
+</div>
+<div class="footer">🌸 First campaign • August 2, 2026</div>
+</section>
+<script>
+const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(!e.isIntersecting)return;const el=e.target,t=parseFloat(el.dataset.target),s=performance.now(),d=1800;function f(n){let p=Math.min((n-s)/d,1),v=t*p;el.textContent=t%1?v.toFixed(1):Math.floor(v).toLocaleString();if(p<1)requestAnimationFrame(f);else el.textContent=t>=100?t.toLocaleString()+"+":t;}requestAnimationFrame(f);obs.unobserve(el);});});
+document.querySelectorAll(".counter").forEach(c=>obs.observe(c));
+</script></body></html>
