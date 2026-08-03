@@ -28,6 +28,6 @@ h1{text-align:center;font-size:54px;margin:0}.sub{text-align:center;color:#555;m
 <div class="footer">🌸 First campaign • August 2, 2026</div>
 </section>
 <script>
-const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(!e.isIntersecting)return;const el=e.target,t=parseFloat(el.dataset.target),s=performance.now(),d=1800;function f(n){let p=Math.min((n-s)/d,1),v=t*p;el.textContent=t%1?v.toFixed(1):Math.floor(v).toLocaleString();if(p<1)requestAnimationFrame(f);else el.textContent=t>=100?t.toLocaleString()+"+":t;}requestAnimationFrame(f);obs.unobserve(el);});});
+const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(!e.isIntersecting)return;const el=e.target,t=parseFloat(el.dataset.target),s=performance.now(),d=1800;function f(n){let p=Math.min((n-s)/d,1),v=t*p;el.textContent=t%1?v.toFixed(1):Math.floor(v).toLocaleString();if(p<1)requestAnimationFrame(f);else el.textContent=t>=100?t.toLocaleString():t;}requestAnimationFrame(f);obs.unobserve(el);});});
 document.querySelectorAll(".counter").forEach(c=>obs.observe(c));
 </script></body></html>
